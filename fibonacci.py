@@ -1,7 +1,7 @@
 '''
 fibonacci.py
 
-Script containing functions fibonacci(n) and fast_fibonacci(), a recursive
+Script containing functions fibonacci(n) and fast_fibonacci(n), a recursive
 fibonacci caluclator and a faster implementation. Calculates n-th position
 in fibonacci sequence and times the calculation.
 
