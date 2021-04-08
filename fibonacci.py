@@ -25,7 +25,7 @@ if __name__ == '__main__':
     
     n = int(input('Enter n for fibonacci(n): '))
 
-    fib_type = input('enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
+    fib_type = input('Enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
     while fib_type != 'q':
         if fib_type == 'f':
             timer = time.time()
@@ -36,5 +36,5 @@ if __name__ == '__main__':
             print(f'\nFast fibonacci of n: {fast_fibonacci(n)}\n')
             print(f'Calculated in {time.time() - timer:.3f} seconds')
         n = int(input('Enter n for fibonacci(n): '))
-        fib_type = input('enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
+        fib_type = input('Enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
         
