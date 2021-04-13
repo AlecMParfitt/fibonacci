@@ -23,7 +23,7 @@ def fibonacci(n):
         n (int): n-th position in Fibonacci sequence to retrieve
 
     Returns:
-        [type]: [description]
+        int: n-th position in fibonacci sequence
     """
     if n == 0:
         return 0
@@ -32,6 +32,14 @@ def fibonacci(n):
     return fibonacci(n - 1) + fibonacci(n - 2) 
 
 def fast_fibonacci(n):
+    """Fast, non-recursive implementation of fibonacci calculator
+
+    Args:
+        n (int): n-th position of fibonacci sequence to be found
+
+    Returns:
+        int: n-th position in fibonacci sequence
+    """
     if n == 0:
         return 0
     if n < 2:
@@ -52,7 +60,7 @@ def generate_timed_plot():
     full_timer = time.time()
     x = []
     y = []
-    for i in range(32):
+    for i in range(36):
         timer = time.time()
         fibonacci(i)
         timer = time.time() - timer
