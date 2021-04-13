@@ -1,17 +1,30 @@
 '''
 fibonacci.py
 
+requires matplotlib
+requires numpy
+
 Script containing functions fibonacci(n) and fast_fibonacci(n), a recursive
 fibonacci caluclator and a faster implementation. Calculates n-th position
-in fibonacci sequence and times the calculation.
+in fibonacci sequence and times the calculation. Graphing shows time to calculate
+similar n-th position
 
 @author Alec Parfitt
 
 '''
 
 import time
+from matplotlib import pyplot as plt
 
 def fibonacci(n):
+    """Recursive Fibinacci calculation
+
+    Args:
+        n (int): n-th position in Fibonacci sequence to retrieve
+
+    Returns:
+        [type]: [description]
+    """
     if n == 0:
         return 0
     if n < 2:
@@ -32,20 +45,62 @@ def fast_fibonacci(n):
         current = next
     return current
 
-if __name__ == '__main__':
+def generate_timed_plot():
+    """Generate plot does not accept n values as plots could end up
+       never being generated
+    """
+    full_timer = time.time()
+    x = []
+    y = []
+    for i in range(32):
+        timer = time.time()
+        fibonacci(i)
+        timer = time.time() - timer
+        x.append(i)
+        y.append(timer)
+    plt.plot(x,y)
     
-    n = int(input('Enter n for fibonacci(n): '))
+    x2 = []
+    y2 = []
+    for j in range(45):
+        timer = time.time()
+        fast_fibonacci(j)
+        timer = time.time() - timer
+        x2.append(j)
+        y2.append(timer)
+    plt.plot(x2,y2)
+    full_timer = time.time() - full_timer
+    print(f'done in {full_timer:.0f} seconds!\n')
 
-    fib_type = input('Enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
-    while fib_type != 'q':
-        if fib_type == 'f':
+def print_menu():
+    print('Select an option below or q to quit')
+    print('      set - set new n position')
+    print('        f - recursive fib')
+    print('       ff - fast fib')
+    print('      gen - generate graphs (this may take a while)')
+    print('       sh - show graphs')
+    print('        q - quit')
+    
+if __name__ == '__main__':
+    n = 25
+    print_menu()
+    print('current n: 25')
+    selection = input('>>| ')
+    while selection != 'q':
+        if selection == 'f':
             timer = time.time()
             print(f'\nRecursive fibonacci of n: {fibonacci(n)}\n')
             print(f'Calculated in {time.time() - timer:.3f} seconds')
-        elif fib_type == 'ff':
+        elif selection == 'ff':
             timer = time.time()
             print(f'\nFast fibonacci of n: {fast_fibonacci(n)}\n')
             print(f'Calculated in {time.time() - timer:.3f} seconds')
-        n = int(input('Enter n for fibonacci(n): '))
-        fib_type = input('Enter f for regular fibonacci, enter ff for fast fibonacci, enter q to quit:\n')
+        elif selection == 'gen':
+            generate_timed_plot()
+        elif selection == 'sh':
+            plt.show()
+        elif selection == 'set':
+            n = input('Enter new n number: ')
+        print_menu()
+        selection = input('>>| ')
         
