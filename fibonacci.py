@@ -88,13 +88,14 @@ def print_menu():
     print('      gen - generate graphs (this may take a while)')
     print('       sh - show graphs')
     print('        q - quit')
+    print('_________________________________________')
     
 if __name__ == '__main__':
     n = 25
     print_menu()
-    print('current n: 25')
     selection = input('>>| ')
     while selection != 'q':
+        print(f'current n: {n}')
         if selection == 'f':
             timer = time.time()
             print(f'\nRecursive fibonacci of n: {fibonacci(n)}\n')
@@ -108,7 +109,7 @@ if __name__ == '__main__':
         elif selection == 'sh':
             plt.show()
         elif selection == 'set':
-            n = input('Enter new n number: ')
+            n = int(input('Enter new n number: '))
         print_menu()
         selection = input('>>| ')
         
