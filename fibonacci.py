@@ -95,6 +95,9 @@ def print_menu():
     print('_________________________________________')
     
 if __name__ == '__main__':
+    
+    # standard_input = ['f', 'ff', 'q'] # AREPL input
+    
     n = 25
     print_menu()
     selection = input('>>| ')
