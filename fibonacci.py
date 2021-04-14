@@ -94,16 +94,19 @@ if __name__ == '__main__':
     n = 25
     print_menu()
     selection = input('>>| ')
+    print('_________________________________________')
     while selection != 'q':
         print(f'current n: {n}')
         if selection == 'f':
             timer = time.time()
             print(f'\nRecursive fibonacci of n: {fibonacci(n)}\n')
             print(f'Calculated in {time.time() - timer:.3f} seconds')
+            print('_________________________________________')
         elif selection == 'ff':
             timer = time.time()
             print(f'\nFast fibonacci of n: {fast_fibonacci(n)}\n')
             print(f'Calculated in {time.time() - timer:.3f} seconds')
+            print('_________________________________________')
         elif selection == 'gen':
             generate_timed_plot()
         elif selection == 'sh':
@@ -111,5 +114,6 @@ if __name__ == '__main__':
         elif selection == 'set':
             n = int(input('Enter new n number: '))
         print_menu()
-        selection = input('>>| ')
+        selection = input('\n>>| ')
+        print('_________________________________________')
         
