@@ -58,9 +58,12 @@ def generate_timed_plot():
        never being generated
     """
     full_timer = time.time()
+    plt.ylabel('sec to calculate')
+    plt.xlabel('n position in fib sequence')
+    plt.title('Time to find n-th position in Fib sequence')
     x = []
     y = []
-    for i in range(36):
+    for i in range(34):
         timer = time.time()
         fibonacci(i)
         timer = time.time() - timer
@@ -81,7 +84,8 @@ def generate_timed_plot():
     print(f'done in {full_timer:.0f} seconds!\n')
 
 def print_menu():
-    print('Select an option below or q to quit')
+    print('\nSelect an option below or q to quit')
+    print()
     print('      set - set new n position')
     print('        f - recursive fib')
     print('       ff - fast fib')
